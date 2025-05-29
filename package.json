@@ -1,0 +1,123 @@
+{
+    "name": "vscode-git-commands-helper",
+    "displayName": "VSCode Git Commands Helper",
+    "description": "A Visual Studio Code extension that provides a comprehensive list of Git commands with copy and run functionality. Features include categorized commands, real-time search, and quick access to common Git operations through an intuitive sidebar interface.",
+    "version": "0.0.1",
+    "publisher": "Developer Extensions",
+    "author": {
+        "name": "RAJ",
+        "email": "verreauxblack@outlook.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/developer-extentions/vscode-git-commands-helper.git"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Other",
+        "SCM"
+    ],
+    "keywords": [
+        "git",
+        "commands",
+        "git-commands",
+        "source-control"
+    ],
+    "icon": "resources/git-icon.png",
+    "galleryBanner": {
+        "color": "#C80000",
+        "theme": "dark"
+    },
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "git-commands-container",
+                    "title": "Git Commands",
+                    "icon": "$(git-branch)"
+                }
+            ]
+        },
+        "views": {
+            "git-commands-container": [
+                {
+                    "id": "gitCommandsView",
+                    "name": "Git Commands",
+                    "icon": "$(git-branch)"
+                }
+            ]
+        },
+        "commands": [
+            {
+                "command": "gitCommands.searchBox",
+                "title": "Search Git Commands",
+                "icon": "$(search)"
+            },
+            {
+                "command": "gitCommands.expandAll",
+                "title": "Expand All Categories",
+                "icon": "$(expand-all)"
+            },
+            {
+                "command": "gitCommands.contextCopy",
+                "title": "Copy Git Command",
+                "icon": "$(copy)",
+                "enablement": "viewItem == gitCommand"
+            },
+            {
+                "command": "gitCommands.contextRun",
+                "title": "Run Git Command",
+                "icon": "$(terminal)",
+                "enablement": "viewItem == gitCommand"
+            }
+        ],
+        "menus": {
+            "view/title": [
+                {
+                    "command": "gitCommands.searchBox",
+                    "when": "view == gitCommandsView",
+                    "group": "navigation"
+                },
+                {
+                    "command": "gitCommands.expandAll",
+                    "when": "view == gitCommandsView",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                    "command": "gitCommands.contextCopy",
+                    "when": "viewItem == gitCommand",
+                    "group": "inline@1"
+                },
+                {
+                    "command": "gitCommands.contextRun",
+                    "when": "viewItem == gitCommand",
+                    "group": "inline@2"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "gitCommands.searchBox",
+                "key": "ctrl+shift+g",
+                "mac": "cmd+shift+g",
+                "when": "view == gitCommandsView"
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "eslint": "^8.0.0"
+    }
+} 
