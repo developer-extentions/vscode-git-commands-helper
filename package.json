@@ -3,7 +3,7 @@
     "displayName": "VSCode Git Commands Helper",
     "description": "A Visual Studio Code extension that provides a comprehensive list of Git commands with copy and run functionality. Features include categorized commands, real-time search, and quick access to common Git operations through an intuitive sidebar interface.",
     "version": "0.0.1",
-    "publisher": "Developer Extensions",
+    "publisher": "verreauxblack",
     "author": {
         "name": "RAJ",
         "email": "verreauxblack@outlook.com"
@@ -17,14 +17,18 @@
         "vscode": "^1.60.0"
     },
     "categories": [
-        "Other",
-        "SCM"
+        "Programming Languages",
+        "Snippets",
+        "Other"
     ],
     "keywords": [
         "git",
         "commands",
         "git-commands",
-        "source-control"
+        "source-control",
+        "git-helper",
+        "git-snippets",
+        "version-control"
     ],
     "icon": "resources/git-icon.png",
     "galleryBanner": {
